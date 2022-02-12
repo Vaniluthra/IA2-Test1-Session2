@@ -1,0 +1,80 @@
+ gcc -g p5final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7fe: file p5final.c, line 29.
+(gdb) r
+Starting program: /home/runner/IA2-Test1-Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p5final.c:29
+29    x=input();
+(gdb) s
+input () at p5final.c:4
+4   {
+(gdb) n
+6     printf("Enter Value: ");
+(gdb) n
+7     scanf("%d",&a);
+(gdb) n
+Enter Value: 86
+8     return a;
+(gdb) p a
+$1 = 86
+(gdb) n
+9   }
+(gdb) n
+main () at p5final.c:30
+30    y=input();
+(gdb) n
+Enter Value: 78
+31    z=gcd(x,y);
+(gdb) s
+gcd (a=86, b=78) at p5final.c:13
+13    int gcd=0;
+(gdb) n
+14    for(int i=1;i<=a && i<=b;i++)
+(gdb) n
+16      if(a%i==0 && b%i==0)
+(gdb) n
+17      gcd=i;
+(gdb) p a
+$2 = 86
+(gdb) p b
+$3 = 78
+(gdb) n
+14    for(int i=1;i<=a && i<=b;i++)
+(gdb) n
+16      if(a%i==0 && b%i==0)
+(gdb) n
+17      gcd=i;
+(gdb) p gcd
+$4 = 1
+(gdb) finish
+Run till exit from #0  gcd (a=86, b=78) at p5final.c:17
+0x00005576ca600827 in main () at p5final.c:31
+31    z=gcd(x,y);
+Value returned is $5 = 2
+(gdb) n
+32    output(x,y,z);
+(gdb) n
+GCD of 86 and 78 is: 2
+33    return 0;
+(gdb) c
+Continuing.
+[Inferior 1 (process 196) exited normally]
+(gdb) 
