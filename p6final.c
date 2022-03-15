@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 void input_string(char *a)
 {
   printf("Enter the string: ");
