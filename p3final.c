@@ -10,29 +10,22 @@ int input_number()
 
 int is_composite(int n)
 {
-  int p=0;
-  
-  if(n==1)
-    p=-1;
-    return p;
-  for(int i=1;i<=n;i++)
+  for(int i=2;i<n/2;i++)
   {
     if(n%i==0)
-    p+=1;
+    return 0;
+    else 
+    return 1;
   }
-  return p;
 }
 
-void output(int n, int composite)
+void output(int n , int is_composite)
 {
-  if(composite==2)
-  printf("%d is a prime number\n",n);
-  else if(composite==-1)
-  printf("prime");
+  if(is_composite==0)
+  printf ("%d is a composite number", n);
   else
-  printf("%d is a composite number\n",n);
+  printf ("%d is not a composite number",n);
 }
-
 int main()
 {
   int x,y;
